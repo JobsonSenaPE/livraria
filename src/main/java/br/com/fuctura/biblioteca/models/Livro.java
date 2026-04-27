@@ -22,11 +22,49 @@ public class Livro implements Serializable {
 
     private String titulo;
     private String autor;
-    private String texto;
+    private String descricao;
+    private String edicao;
 
     @JsonIgnore //impede que essa parte seja serializada, esconde o atributo quando envia ou recebe dados via API
     @ManyToOne  //muitos livros ou nenhum para uma categoria
     @JoinColumn(name = "categoria_id") //coluna que servirá como chave estrangeira, para conectar tabelas.
     private Categoria categoria;
 
+    //get - retorna o dado , set- edita o dado
+
+    public Integer getId() {
+        return id;}
+
+    public void setId(Integer id) {
+        this.id = id;}
+
+    public String getTitulo() {
+        return titulo; }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo; }
+
+    public String getAutor() {
+        return autor; }
+
+    public void setAutor(String autor) {
+        this.autor = autor; }
+
+    public String getDescricao() {
+        return descricao;    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao; }
+
+    public String getEdicao() {
+        return edicao; }
+
+    public void setEdicao(String edicao) {
+        this.edicao = edicao; }
+
+    public Categoria getCategoria() {
+        return categoria; }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria; }
 }
