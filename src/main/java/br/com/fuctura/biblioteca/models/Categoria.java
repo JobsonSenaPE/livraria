@@ -28,7 +28,7 @@ public class Categoria implements Serializable {
     @OneToMany(mappedBy = "categoria") //uma categoria para nenhum ou muitos livros
     private List<Livro> livros = new ArrayList<>(); //se não inicializar, seria uma lista nula (pointexception)
 
-    public Categoria(){};
+    ;
 
     public Categoria(Integer id, String nome, String descricao) {
         this.id = id;

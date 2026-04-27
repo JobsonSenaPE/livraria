@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>br.com.fuctura</groupId>
-	<artifactId>biblioteca</artifactId>
+	<artifactId>livraria</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name/>
 	<description/>
