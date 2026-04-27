@@ -23,7 +23,7 @@ public class Categoria implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY) //gera um is automatico
     private Integer id;
     private String nome;
-    private String descricao;
+    private String descricao; //ok
 
     @OneToMany(mappedBy = "categoria") //uma categoria para nenhum ou muitos livros
     private List<Livro> livros = new ArrayList<>(); //se não inicializar, seria uma lista nula (pointexception)
