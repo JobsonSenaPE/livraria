@@ -22,6 +22,8 @@ public class Categoria implements Serializable {
     @Id //indica que essa é a chave primária da tabela
     @GeneratedValue(strategy = GenerationType.IDENTITY) //gera um is automatico
     private Integer id;
+
+     @Column(unique = true)
     private String nome;
     private String descricao; //ok
 
