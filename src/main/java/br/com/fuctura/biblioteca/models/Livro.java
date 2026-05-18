@@ -1,5 +1,6 @@
 package br.com.fuctura.biblioteca.models;
 
+import br.com.fuctura.biblioteca.enuns.Edicao;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -22,49 +23,33 @@ public class Livro implements Serializable {
 
     private String titulo;
     private String autor;
-    private String descricao;
-    private String edicao;
+    private String texto; // Adicionado de volta conforme o diagrama
+    private String descricao; // Mantido, se for um campo adicional
+
+    @Enumerated(EnumType.STRING)
+    private Edicao edicao;
 
     @JsonIgnore //impede que essa parte seja serializada, esconde o atributo quando envia ou recebe dados via API
     @ManyToOne  //muitos livros ou nenhum para uma categoria
     @JoinColumn(name = "categoria_id") //coluna que servirá como chave estrangeira, para conectar tabelas.
     private Categoria categoria;
 
-    //get - retorna o dado , set- edita o dado
+    // Getters e Setters são gerados automaticamente pelo Lombok (@Data)
+    // O construtor com todos os parâmetros é gerado pelo Lombok (@AllArgsConstructor)
+    // O construtor sem parâmetros é gerado pelo Lombok (@NoArgsConstructor)
 
-    public Integer getId() {
-        return id;}
 
-    public void setId(Integer id) {
-        this.id = id;}
+    public Livro(Integer id, String titulo, String autor, String texto, String descricao, Edicao edicao, Categoria categoria) {
+        this.id = id;
+        this.titulo = titulo;
+        this.autor = autor;
+        this.texto = texto;
+        this.descricao = descricao;
+        this.edicao = edicao;
+        this.categoria = categoria;
+    }
 
-    public String getTitulo() {
-        return titulo; }
 
-    public void setTitulo(String titulo) {
-        this.titulo = titulo; }
-
-    public String getAutor() {
-        return autor; }
-
-    public void setAutor(String autor) {
-        this.autor = autor; }
-
-    public String getDescricao() {
-        return descricao;    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao; }
-
-    public String getEdicao() {
-        return edicao; }
-
-    public void setEdicao(String edicao) {
-        this.edicao = edicao; }
-
-    public Categoria getCategoria() {
-        return categoria; }
-
-    public void setCategoria(Categoria categoria) {
-        this.categoria = categoria; }
 }
+
+
